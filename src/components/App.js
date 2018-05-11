@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const App = () => (
+import Login from './Login'
+
+const Home = () => (
   <div>
     <h2>Doggie Hub</h2>
     <ul>
@@ -12,6 +14,12 @@ const App = () => (
         <Link to="/golden-retriever">Golden Retriever</Link>
       </li>
     </ul>
+  </div>
+)
+
+const App = props => (
+  <div>
+    {props.auth.isAuthenticated() ? <Home /> : <Login {...props} /> }
   </div>
 )
 
